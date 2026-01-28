@@ -7,16 +7,16 @@ This project is built for learning full-stack development using Flask and MySQL.
 ## 🚀 Features
 ### 👤 User
 
-      1. Attractive homepage with animated background
-      2. User registration & login
-      3. Add complaints after login
-      4. Logout & navigation (Back to Home / Dashboard)
+       Attractive homepage with animated background
+       User registration & login
+       Add complaints after login
+       Logout & navigation (Back to Home / Dashboard)
       
 
 ### 🔐 Admin
 
-      1. Separate admin login
-      2. View all complaints submitted by users
+       Separate admin login
+       View all complaints submitted by users
       3. Logout & back to home option
 
 
@@ -50,6 +50,7 @@ mini-complaint-box/
     └── style.css
 
 
+
 ## 🔐 Environment Variables (.env)
 
 #### Create a .env file in the root folder:  (⚠️ .env file is ignored using .gitignore for security.)
@@ -58,6 +59,7 @@ DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=complaint_db
+
 
 
 ## 🗄️ Database Setup (MySQL)
@@ -104,9 +106,11 @@ pip install -r requirements.txt
 python app.py
 
 
+
 ## 🔑 Default Admin Credentials
 Username: admin
 Password: admin123
+
 
 
 ## 📌 Notes
@@ -118,6 +122,7 @@ Password: admin123
      GitHub portfolio
 
 
+
 ## 🌟 Future Improvements
 
 1. Password hashing
@@ -126,11 +131,13 @@ Password: admin123
 4. User complaint history page
 
 
+
 ## 👩‍💻 Author
 
 Shruti Kumari
-B.Tech CSE (Data Science)
-Mini Full-Stack Project using Flask & MySQL
+BTech cse (Data Science)
+Mini fullStack project using Flask and MySQL.
+
 
 
 
