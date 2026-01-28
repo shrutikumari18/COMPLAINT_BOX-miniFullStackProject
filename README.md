@@ -6,18 +6,16 @@ This project is built for learning full-stack development using Flask and MySQL.
 
 ## 🚀 Features
 ### 👤 User
-
-       Attractive homepage with animated background
-       User registration & login
-       Add complaints after login
-       Logout & navigation (Back to Home / Dashboard)
+1. Attractive homepage with animated background
+2. User registration & login
+3. Add complaints after login
+4. Logout & navigation (Back to Home / Dashboard)
       
 
 ### 🔐 Admin
-
-       Separate admin login
-       View all complaints submitted by users
-      3. Logout & back to home option
+1. Separate admin login
+2. View all complaints submitted by users
+3. Logout & back to home option
 
 
 ## 🛠️ Tech Stack
@@ -28,70 +26,49 @@ This project is built for learning full-stack development using Flask and MySQL.
 4. Environment Variables: python-dotenv
 
 
-## 📁 Project Structure
-
-mini-complaint-box/
-│
-├── app.py
-├── .env
-├── .gitignore
-├── requirements.txt
-│
-├── templates/
-│   ├── home.html
-│   ├── register.html
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── add_complaint.html
-│   ├── admin_login.html
-│   └── admin_dashboard.html
-│
-└── static/
-    └── style.css
-
-
 
 ## 🔐 Environment Variables (.env)
 
 #### Create a .env file in the root folder:  (⚠️ .env file is ignored using .gitignore for security.)
 and put the following code-
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=complaint_db
+
+       DB_HOST=localhost
+       DB_USER=root
+       DB_PASSWORD=your_mysql_password
+       DB_NAME=complaint_db
 
 
 
 ## 🗄️ Database Setup (MySQL)
 
 #### Run the following SQL queries in MySQL Workbench:
-
-CREATE DATABASE complaint_db;
-USE complaint_db;
-
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100),
-    email VARCHAR(100),
-    password VARCHAR(100)
-);
-
-CREATE TABLE complaints (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    title VARCHAR(200),
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE admin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50),
-    password VARCHAR(50)
-);
-
-INSERT INTO admin (username, password)
-VALUES ('admin', 'admin123');
+              
+              CREATE DATABASE complaint_db;
+              USE complaint_db;
+              
+              CREATE TABLE users (
+                  id INT AUTO_INCREMENT PRIMARY KEY,
+                  username VARCHAR(100),
+                  email VARCHAR(100),
+                  password VARCHAR(100)
+              );
+              
+              CREATE TABLE complaints (
+                  id INT AUTO_INCREMENT PRIMARY KEY,
+                  user_id INT,
+                  title VARCHAR(200),
+                  description TEXT,
+                  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+              );
+              
+              CREATE TABLE admin (
+                  id INT AUTO_INCREMENT PRIMARY KEY,
+                  username VARCHAR(50),
+                  password VARCHAR(50)
+              );
+              
+              INSERT INTO admin (username, password)
+              VALUES ('admin', 'admin123');
 
 
 
@@ -109,6 +86,7 @@ python app.py
 
 ## 🔑 Default Admin Credentials
 Username: admin
+
 Password: admin123
 
 
@@ -135,7 +113,9 @@ Password: admin123
 ## 👩‍💻 Author
 
 Shruti Kumari
+
 BTech cse (Data Science)
+
 Mini fullStack project using Flask and MySQL.
 
 
