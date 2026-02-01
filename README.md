@@ -9,13 +9,15 @@ This project is built for learning full-stack development using Flask and MySQL.
 1. Attractive homepage with animated background
 2. User registration & login
 3. Add complaints after login
-4. Logout & navigation (Back to Home / Dashboard)
+4. Can view their complaints.
+5. Logout & navigation (Back to Home / Dashboard)
       
 
 ### 🔐 Admin
 1. Separate admin login
 2. View all complaints submitted by users
-3. Logout & back to home option
+3. Can view, delete and show resolve status of the complaits
+4. Logout & back to home option
 
 
 ## 🛠️ Tech Stack
@@ -36,6 +38,8 @@ and put the following code-
        DB_USER=root
        DB_PASSWORD=your_mysql_password
        DB_NAME=complaint_db
+
+       SECURITY_KEY = MY_SECURITY_KEY
 
 
 
