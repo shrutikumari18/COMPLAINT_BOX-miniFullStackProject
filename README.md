@@ -47,32 +47,33 @@ and put the following code-
 
 #### Run the following SQL queries in MySQL Workbench:
               
-              CREATE DATABASE complaint_db;
-              USE complaint_db;
+              CREATE DATABASE complaint_box;
+              USE complaint_box;
               
               CREATE TABLE users (
-                  id INT AUTO_INCREMENT PRIMARY KEY,
-                  username VARCHAR(100),
-                  email VARCHAR(100),
-                  password VARCHAR(100)
-              );
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(100) NOT NULL,
+                email VARCHAR(150) NOT NULL UNIQUE,
+                password VARCHAR(255) NOT NULL
+               );
               
               CREATE TABLE complaints (
-                  id INT AUTO_INCREMENT PRIMARY KEY,
-                  user_id INT,
-                  title VARCHAR(200),
-                  description TEXT,
-                  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+               id INT AUTO_INCREMENT PRIMARY KEY,
+               user_id INT NOT NULL,
+               title VARCHAR(255) NOT NULL,
+               category VARCHAR(100) NOT NULL,
+               description TEXT NOT NULL,
+               status VARCHAR(20) DEFAULT 'pending',
+               created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+               FOREIGN KEY (user_id) REFERENCES users(id)
               );
               
-              CREATE TABLE admin (
+             CREATE TABLE admin (
                   id INT AUTO_INCREMENT PRIMARY KEY,
-                  username VARCHAR(50),
-                  password VARCHAR(50)
-              );
+                  username VARCHAR(100) NOT NULL UNIQUE,
+                  password VARCHAR(255) NOT NULL
+               );
               
-              INSERT INTO admin (username, password)
-              VALUES ('admin', 'admin123');
 
 
 
@@ -85,13 +86,6 @@ venv\Scripts\activate
 pip install -r requirements.txt
 #### ▶️ Run the Project
 python app.py
-
-
-
-## 🔑 Default Admin Credentials
-Username: admin
-
-Password: admin123
 
 
 
