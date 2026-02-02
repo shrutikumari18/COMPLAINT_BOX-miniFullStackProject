@@ -41,8 +41,6 @@
             color: white;
             font-weight: 600;
         }
-        .status-pending { background: #fff3cd; color: #856404; }
-        .status-resolved { background: #d1edff; color: #0c5460; }
     </style>
 </head>
 <body>
@@ -56,9 +54,6 @@
             
             <a href="/admin-dashboard" class="nav-link active">
                 📊 Dashboard
-            </a>
-            <a href="/all-users" class="nav-link">
-                👥 Users
             </a>
             <hr class="text-white opacity-25 my-3">
             <a href="/logout" class="nav-link">
@@ -82,28 +77,22 @@
 
             <!-- Stats Row -->
             <div class="row mb-5">
-                <div class="col-xl-3 col-md-6 mb-4">
+                <div class="col-xl-4 col-md-6 mb-4">
                     <div class="stat-card p-4 h-100 border-start-primary">
                         <h3 class="text-primary mb-1">{{ data|length }}</h3>
                         <p class="text-muted mb-0">Total Complaints</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-4">
+                <div class="col-xl-4 col-md-6 mb-4">
                     <div class="stat-card p-4 h-100 border-start-warning">
-                        <h3 class="text-warning mb-1">0</h3>
+                        <h3 class="text-warning mb-1">{{ pending }}</h3>
                         <p class="text-muted mb-0">Pending</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-4">
+                <div class="col-xl-4 col-md-6 mb-4">
                     <div class="stat-card p-4 h-100 border-start-success">
-                        <h3 class="text-success mb-1">0</h3>
+                        <h3 class="text-success mb-1">{{ resolved }}</h3>
                         <p class="text-muted mb-0">Resolved</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="stat-card p-4 h-100 border-start-danger">
-                        <h3 class="text-danger mb-1">0</h3>
-                        <p class="text-muted mb-0">Today</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +106,9 @@
                                 <tr>
                                     <th>User</th>
                                     <th>Title</th>
+                                    <th>Category</th>
                                     <th>Description</th>
+                                    <th>Status</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
@@ -127,14 +118,22 @@
                                 <tr>
                                     <td><strong>{{ c.username }}</strong></td>
                                     <td>{{ c.title }}</td>
-                                    <td>{{ c.description[:50] }}...</td>
+                                    <td>{{ c.category }}</td>
+                                    <td>{{ c.description }}</td>
+                                    <td>
+                                        {% if c.status == 'pending' %}
+                                            <span class="badge bg-warning text-dark">Pending</span>
+                                        {% elif c.status == 'resolved' %}
+                                            <span class="badge bg-success">Resolved</span>
+                                        {% endif %}
+                                    </td>
                                     <td>{{ c.created_at }}</td>
                                     <td>
-                                        <span class="badge bg-warning text-dark status-pending">Pending</span>
-                                        <div class="btn-group mt-1">
-                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-outline-success">Resolve</a>
-                                            <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
+                                        <div class="btn-group">
+                                            {% if c.status == 'pending' %}
+                                                <a href="/update-complaint/{{ c.id }}/resolved" class="btn btn-sm btn-outline-success">Resolve</a>
+                                            {% endif %}
+                                            <a href="/delete-complaint/{{ c.id }}" class="btn btn-sm btn-outline-danger">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
